@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/config"
 
 const socialLinks = [
   { icon: Instagram, href: siteConfig.social.instagram, label: "Instagram" },
-  { icon: Facebook, href: siteConfig.social.facebook, label: "Facebook" },
+  // { icon: Facebook, href: siteConfig.social.facebook, label: "Facebook" },
   { icon: Youtube, href: siteConfig.social.youtube, label: "YouTube" },
   { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
 ]
@@ -62,12 +62,12 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-background/70">
               <li>
-                <a href={siteConfig.contact.phoneHref} className="hover:text-background transition-colors">
+                <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-background transition-colors">
                   {siteConfig.contact.phone}
                 </a>
               </li>
               <li>
-                <a href={siteConfig.contact.emailHref} className="hover:text-background transition-colors">
+                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-background transition-colors">
                   {siteConfig.contact.email}
                 </a>
               </li>
