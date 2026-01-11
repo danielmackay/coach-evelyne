@@ -1,12 +1,12 @@
 import Link from "next/link"
-import { Instagram, Facebook, Youtube, Linkedin } from "lucide-react"
+import { Instagram, Facebook } from "lucide-react"
 import { siteConfig } from "@/lib/config"
 
 const socialLinks = [
   { icon: Instagram, href: siteConfig.social.instagram, label: "Instagram" },
-  // { icon: Facebook, href: siteConfig.social.facebook, label: "Facebook" },
-  { icon: Youtube, href: siteConfig.social.youtube, label: "YouTube" },
-  { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
+  { icon: Facebook, href: siteConfig.social.facebook, label: "Facebook" },
+  // { icon: Youtube, href: siteConfig.social.youtube, label: "YouTube" },
+  // { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
 ]
 
 const footerLinks = [
