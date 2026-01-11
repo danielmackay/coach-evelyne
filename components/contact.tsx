@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react"
+import { siteConfig } from "@/lib/config"
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
@@ -45,8 +46,8 @@ export function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Phone</p>
-                      <a href="tel:+15551234567" className="font-medium hover:text-primary transition-colors">
-                        +1 (555) 123-4567
+                      <a href={`tel:${siteConfig.contact.phone}`} className="font-medium hover:text-primary transition-colors">
+                        {siteConfig.contact.phone}
                       </a>
                     </div>
                   </CardContent>
@@ -60,10 +61,10 @@ export function Contact() {
                     <div>
                       <p className="text-sm text-muted-foreground">Email</p>
                       <a
-                        href="mailto:hello@coachevelyne.com"
+                        href={`mailto:${siteConfig.contact.email}`}
                         className="font-medium hover:text-primary transition-colors"
                       >
-                        hello@coachevelyne.com
+                        {siteConfig.contact.email}
                       </a>
                     </div>
                   </CardContent>
@@ -76,7 +77,7 @@ export function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Location</p>
-                      <p className="font-medium">Los Angeles, CA</p>
+                      <p className="font-medium">{siteConfig.contact.location}</p>
                     </div>
                   </CardContent>
                 </Card>

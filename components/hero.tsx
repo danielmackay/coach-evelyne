@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import { siteConfig } from "@/lib/config"
 
 export function Hero() {
   return (
@@ -62,7 +63,7 @@ export function Hero() {
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-secondary">
               <img
                 src="/professional-female-personal-trainer-fitness-coach.jpg"
-                alt="Coach Evelyne - Personal Trainer"
+                alt={`${siteConfig.name} - Personal Trainer`}
                 className="object-cover w-full h-full"
               />
             </div>

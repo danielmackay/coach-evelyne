@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/lib/config"
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -20,7 +21,7 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="text-xl md:text-2xl font-bold text-primary">
-            coachevelyne
+            {siteConfig.name}
           </Link>
 
           {/* Desktop Navigation */}

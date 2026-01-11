@@ -1,11 +1,12 @@
 import Link from "next/link"
 import { Instagram, Facebook, Youtube, Linkedin } from "lucide-react"
+import { siteConfig } from "@/lib/config"
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Youtube, href: "#", label: "YouTube" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Instagram, href: siteConfig.social.instagram, label: "Instagram" },
+  { icon: Facebook, href: siteConfig.social.facebook, label: "Facebook" },
+  { icon: Youtube, href: siteConfig.social.youtube, label: "YouTube" },
+  { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
 ]
 
 const footerLinks = [
@@ -23,7 +24,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="text-2xl font-bold mb-4 inline-block">
-              coachevelyne
+              {siteConfig.name}
             </Link>
             <p className="text-background/70 max-w-md mb-6">
               Empowering individuals to transform their lives through personalized fitness coaching, nutrition guidance,
@@ -57,27 +58,26 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-background/70">
               <li>
-                <a href="tel:+15551234567" className="hover:text-background transition-colors">
-                  +1 (555) 123-4567
+                <a href={siteConfig.contact.phoneHref} className="hover:text-background transition-colors">
+                  {siteConfig.contact.phone}
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@coachevelyne.com" className="hover:text-background transition-colors">
-                  hello@coachevelyne.com
+                <a href={siteConfig.contact.emailHref} className="hover:text-background transition-colors">
+                  {siteConfig.contact.email}
                 </a>
               </li>
-              <li>Los Angeles, CA</li>
+              <li>{siteConfig.contact.location}</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-background/60 text-sm">© {new Date().getFullYear()} Coach Evelyne. All rights reserved.</p>
+          <p className="text-background/60 text-sm">© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
           <div className="flex gap-6 text-sm">
             <Link href="#" className="text-background/60 hover:text-background transition-colors">
               Privacy Policy
