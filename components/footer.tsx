@@ -2,9 +2,9 @@ import Link from "next/link"
 import { Instagram, Facebook } from "lucide-react"
 import { siteConfig } from "@/lib/config"
 
-const socialLinks = [
-  { icon: Instagram, href: siteConfig.social.instagram, label: "Instagram" },
-  { icon: Facebook, href: siteConfig.social.facebook, label: "Facebook" },
+const socialLinks:any[] = [
+  // { icon: Instagram, href: siteConfig.social.instagram, label: "Instagram" },
+  // { icon: Facebook, href: siteConfig.social.facebook, label: "Facebook" },
   // { icon: Youtube, href: siteConfig.social.youtube, label: "YouTube" },
   // { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
 ]
@@ -12,7 +12,7 @@ const socialLinks = [
 const footerLinks = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
-  { href: "#testimonials", label: "Testimonials" },
+  // { href: "#testimonials", label: "Testimonials" },
   { href: "#contact", label: "Contact" },
 ]
 
@@ -78,14 +78,14 @@ export function Footer() {
 
         <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-background/60 text-sm">© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-          <div className="flex gap-6 text-sm">
+          {/* <div className="flex gap-6 text-sm">
             <Link href="#" className="text-background/60 hover:text-background transition-colors">
               Privacy Policy
             </Link>
             <Link href="#" className="text-background/60 hover:text-background transition-colors">
               Terms of Service
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
