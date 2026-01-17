@@ -21,12 +21,11 @@ export function Hero() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance">
-              Forge Your Strength, <span className="text-primary">Elevate Your Life</span>
+              Build Strength, <span className="text-primary">Move Better, Live Longer</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg">
-              I'm Evelyne, your dedicated personal trainer. Together, we'll build strength, mobility, better movement, confidence, and lasting
-              healthy habits tailored to your unique goals.
+              I'm Evelyne, a qualified personal trainer serving Coolum and the Sunshine Coast. Let's work together to build your strength, improve mobility, and create lasting healthy habits with personalized in-person training.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

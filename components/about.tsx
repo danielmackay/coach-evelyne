@@ -3,23 +3,23 @@ import { Award, Heart, Target, Users } from "lucide-react"
 const highlights = [
   {
     icon: Award,
-    title: "Certified Expert",
-    description: "NASM certified with specialized training in functional fitness and nutrition.",
+    title: "Fully Qualified",
+    description: "Certificate III & IV in Fitness with up-to-date knowledge and training methods.",
   },
   {
     icon: Heart,
-    title: "Holistic Approach",
-    description: "I focus on the whole person—mind, body, and lifestyle for lasting results.",
+    title: "Personalized Attention",
+    description: "Dedicated focus on each client with customized programs for your unique needs.",
   },
   {
     icon: Target,
-    title: "Goal-Oriented",
-    description: "Custom programs designed around your specific goals and timeline.",
+    title: "Specialized Focus",
+    description: "Expert training in strength, mobility, women's health, gymnastics, and longevity.",
   },
   {
     icon: Users,
-    title: "Supportive Community",
-    description: "Join a network of like-minded individuals on their fitness journey.",
+    title: "40+ Specialist",
+    description: "Passionate about helping clients over 40 build strength and move better.",
   },
 ]
 
@@ -43,19 +43,16 @@ export function About() {
           <div className="space-y-8">
             <div>
               <p className="text-primary font-semibold mb-2">About Me</p>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance">Your Partner in Health & Fitness</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance">Your Partner in Strength & Movement</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Hi, I'm Evelyne! For over a decade, I've dedicated my career to helping people discover their strength
-                  and transform their lives through fitness.
+                  Hi, I'm Evelyne! I'm a qualified personal trainer with Certificate III and IV in Fitness, and I'm passionate about helping people discover their strength and move better every day.
                 </p>
                 <p>
-                  My journey began when I experienced firsthand how the right guidance can make all the difference. Now,
-                  I bring that same passion and personalized attention to every client I work with.
+                  My approach is simple: personalized training that focuses on what matters most to you. Whether you're looking to build strength, improve mobility, focus on women's health, explore gymnastics movements, or train for longevity (especially if you're over 40), I'm here to guide you every step of the way.
                 </p>
                 <p>
-                  Whether you're just starting out or looking to break through a plateau, I'm here to provide the
-                  expertise, motivation, and accountability you need to succeed.
+                  I offer in-person training throughout Coolum and the Sunshine Coast—at the gym, your home, or outdoors. With a smaller client base, you'll get my full attention and a program designed specifically for your goals and lifestyle.
                 </p>
               </div>
             </div>

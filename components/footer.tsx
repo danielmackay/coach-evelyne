@@ -27,8 +27,7 @@ export function Footer() {
               {siteConfig.name}
             </Link>
             <p className="text-background/70 max-w-md mb-6">
-              Empowering individuals to transform their lives through personalized fitness coaching, nutrition guidance,
-              and unwavering support.
+              Helping you build strength, improve mobility, and move better. Qualified personal trainer offering personalized in-person training in Coolum and the Sunshine Coast.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (

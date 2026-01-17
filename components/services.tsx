@@ -1,4 +1,4 @@
-import { Dumbbell, Salad, Users, Video, Calendar, TrendingUp } from "lucide-react"
+import { Dumbbell, Users, Target } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -6,44 +6,24 @@ import Link from "next/link"
 const services = [
   {
     icon: Dumbbell,
-    title: "1-on-1 Personal Training",
+    title: "Personal Training",
     description:
-      "Customized workout sessions tailored to your goals, fitness level, and schedule. Get hands-on guidance and real-time feedback.",
-    features: ["Personalized workout plans", "Form correction", "Progress tracking"],
-  },
-  {
-    icon: Video,
-    title: "Online Coaching",
-    description:
-      "Train from anywhere with virtual sessions and custom programming. Perfect for busy schedules or remote clients.",
-    features: ["Video call sessions", "Custom workout app", "24/7 messaging support"],
-  },
-  {
-    icon: Salad,
-    title: "Nutrition Coaching",
-    description:
-      "Fuel your body right with personalized meal plans and nutrition strategies that complement your training.",
-    features: ["Meal planning", "Macro tracking guidance", "Sustainable eating habits"],
+      "One-on-one training sessions tailored to your goals and fitness level. Train at the gym, your home, or outdoors in Coolum and the Sunshine Coast.",
+    features: ["Customized workout programs", "In-person coaching", "Flexible training locations"],
   },
   {
     icon: Users,
-    title: "Small Group Training",
+    title: "Group Training",
     description:
-      "Train with a small group of like-minded individuals. Enjoy the energy of group workouts with personalized attention.",
-    features: ["Max 6 participants", "Community support", "Cost-effective option"],
+      "Small group sessions with personalized attention. Train with friends or join a supportive group focused on similar goals.",
+    features: ["Small group sizes", "Shared motivation", "Cost-effective training"],
   },
   {
-    icon: Calendar,
-    title: "Program Design",
+    icon: Target,
+    title: "Specialist Programs",
     description:
-      "Get a complete workout program designed for your goals. Perfect for self-motivated individuals who prefer training independently.",
-    features: ["4-12 week programs", "Exercise video library", "Weekly check-ins"],
-  },
-  {
-    icon: TrendingUp,
-    title: "Transformation Packages",
-    description: "Comprehensive packages combining training, nutrition, and lifestyle coaching for maximum results.",
-    features: ["Full body transformation", "Lifestyle coaching", "Accountability system"],
+      "Targeted programs focusing on strength building, mobility improvement, women's health, gymnastics movements, longevity training, and specialized support for clients over 40.",
+    features: ["Strength & mobility focus", "Women's health programs", "40+ longevity training"],
   },
 ]
 
@@ -53,14 +33,13 @@ export function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-primary font-semibold mb-2">Services</p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Programs Designed for Your Success</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Training That Fits Your Goals</h2>
           <p className="text-muted-foreground text-lg">
-            Choose the training option that fits your lifestyle and goals. Every program is customized to help you
-            achieve lasting results.
+            Choose the training option that works best for you. All programs are personalized and designed to help you build strength, improve movement, and achieve lasting results.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {services.map((service) => (
             <Card
               key={service.title}

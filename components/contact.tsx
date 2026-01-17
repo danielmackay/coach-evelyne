@@ -26,10 +26,9 @@ export function Contact() {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-primary font-semibold mb-2">Contact</p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Ready to Start Your Transformation?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Ready to Get Started?</h2>
           <p className="text-muted-foreground text-lg">
-            Get in touch for a free consultation. I'd love to hear about your goals and discuss how we can work
-            together.
+            Get in touch for a free consultation. I'd love to hear about your goals and discuss how we can work together.
           </p>
         </div>
 

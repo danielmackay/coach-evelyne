@@ -2,11 +2,11 @@ export const siteConfig = {
   name: "Coach Evelyne",
   title: "Coach Evelyne | Personal Trainer",
   description:
-    "Transform your fitness journey with Coach Evelyne. Personalized training programs, nutrition guidance, and ongoing support to help you achieve your health goals.",
+    "Build strength and move better with Coach Evelyne. Qualified personal trainer offering in-person training in Coolum and the Sunshine Coast. Specializing in strength, mobility, women's health, and longevity training.",
   contact: {
     phone: "+61 478 540 927",
     email: "hello@coachevelyne.com",
-    location: "Peregian Springs, QLD, Australia",
+    location: "Coolum, Sunshine Coast, QLD",
   },
   social: {
     instagram: "#",
