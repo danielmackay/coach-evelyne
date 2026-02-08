@@ -9,7 +9,7 @@ export const siteConfig = {
     location: "Coolum, Sunshine Coast, QLD",
   },
   social: {
-    instagram: "#",
+    instagram: "https://www.instagram.com/coach.evelyne/",
     facebook: "#",
     youtube: "#",
     linkedin: "#",

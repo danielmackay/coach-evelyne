@@ -3,7 +3,7 @@ import { Instagram, Facebook } from "lucide-react"
 import { siteConfig } from "@/lib/config"
 
 const socialLinks:any[] = [
-  // { icon: Instagram, href: siteConfig.social.instagram, label: "Instagram" },
+  { icon: Instagram, href: siteConfig.social.instagram, label: "Instagram" },
   // { icon: Facebook, href: siteConfig.social.facebook, label: "Facebook" },
   // { icon: Youtube, href: siteConfig.social.youtube, label: "YouTube" },
   // { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
