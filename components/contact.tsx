@@ -2,7 +2,9 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -10,15 +12,67 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react"
 import { siteConfig } from "@/lib/config"
+import { contactFormSchema, type ContactFormData } from "@/lib/email/schema"
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // In a real app, this would send the form data to a server
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 5000)
+  const {
+    register,
+    handleSubmit: handleFormSubmit,
+    formState: { errors: formErrors },
+    reset,
+    watch,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+  })
+
+  // Watch message field for character count
+  const messageValue = watch("message") || ""
+
+  // Clean up success message timeout on unmount
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => setSubmitted(false), 5000)
+      return () => clearTimeout(timer)
+    }
+  }, [submitted])
+
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true)
+    setError(null)
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      let responseData
+      try {
+        responseData = await response.json()
+      } catch {
+        setError("Server error. Please try again later.")
+        return
+      }
+
+      if (response.ok && responseData.success) {
+        setSubmitted(true)
+        reset()
+      } else {
+        setError(responseData.error || "Failed to send message. Please try again.")
+      }
+    } catch (err) {
+      console.error("Form submission error:", err)
+      setError("Network error. Please check your connection and try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -105,45 +159,90 @@ export function Contact() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleFormSubmit(onSubmit)} className="space-y-6">
+                    {error && (
+                      <div className="p-4 rounded-lg bg-destructive/10 text-destructive text-sm">
+                        {error}
+                      </div>
+                    )}
+
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="firstName">First Name</Label>
-                        <Input id="firstName" placeholder="Your first name" required />
+                        <Input
+                          id="firstName"
+                          placeholder="Your first name"
+                          {...register("firstName")}
+                        />
+                        {formErrors.firstName && (
+                          <p className="text-sm text-destructive">{formErrors.firstName.message}</p>
+                        )}
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="lastName">Last Name</Label>
-                        <Input id="lastName" placeholder="Your last name" required />
+                        <Input
+                          id="lastName"
+                          placeholder="Your last name"
+                          {...register("lastName")}
+                        />
+                        {formErrors.lastName && (
+                          <p className="text-sm text-destructive">{formErrors.lastName.message}</p>
+                        )}
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="your@email.com" required />
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="your@email.com"
+                        {...register("email")}
+                      />
+                      {formErrors.email && (
+                        <p className="text-sm text-destructive">{formErrors.email.message}</p>
+                      )}
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone (optional)</Label>
-                      <Input id="phone" type="tel" placeholder="+1 (555) 000-0000" />
+                      <Input
+                        id="phone"
+                        type="tel"
+                        placeholder="+1 (555) 000-0000"
+                        {...register("phone")}
+                      />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="goal">What's your fitness goal?</Label>
-                      <Input id="goal" placeholder="e.g., Lose weight, Build muscle, Improve endurance" />
+                      <Input
+                        id="goal"
+                        placeholder="e.g., Lose weight, Build muscle, Improve endurance"
+                        {...register("goal")}
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message">Message</Label>
+                      <div className="flex items-center justify-between">
+                        <Label htmlFor="message">Message</Label>
+                        <span className={`text-xs ${messageValue.length > 1000 ? "text-destructive" : "text-muted-foreground"}`}>
+                          {messageValue.length}/1000
+                        </span>
+                      </div>
                       <Textarea
                         id="message"
                         placeholder="Tell me a bit about yourself and what you're looking to achieve..."
                         rows={4}
-                        required
+                        {...register("message")}
                       />
+                      {formErrors.message && (
+                        <p className="text-sm text-destructive">{formErrors.message.message}</p>
+                      )}
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full">
-                      Send Message
+                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                      {isSubmitting ? "Sending..." : "Send Message"}
                       <Send className="ml-2 w-4 h-4" />
                     </Button>
                   </form>
